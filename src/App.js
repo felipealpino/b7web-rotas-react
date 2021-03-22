@@ -7,13 +7,22 @@ import Categoria from './pages/Categoria'
 import Login from './pages/Login';
 
 
-const isLogged = false;
+const isLogged = true;
+
+const PrivateRoute = ({children, ...rest}) => {
+    return(<> 
+        <Route {...rest }>
+            {isLogged ? children : <Redirect to="/login" />}
+        </Route>
+    </>)
+}
 
 function App() {
 
     return(<> 
         <BrowserRouter>
             <header>
+            
                 <h1>
                     Meu site (Single Page Application)
                 </h1>
@@ -46,6 +55,7 @@ function App() {
 
                     </ul>
                 </nav>
+           
             </header>
             
             <hr/>
@@ -57,16 +67,17 @@ function App() {
                 </Route>
 
 
-
                 {/* ROTA HOME */}
                 <Route exact path="/">
                     <Home/>
                 </Route>
 
+
                 {/* ROTA SOBRE */}
-                <Route exact path="/sobre">
-                    {isLogged ? <Sobre/> : <Redirect to="/login"/>}
-                </Route>
+                <PrivateRoute exact path="/sobre">
+                    <Sobre />
+                </PrivateRoute>
+
 
                 {/* ROTA QUE REDIRECIONA PARA SOBRE */}
                 <Route exact path="/quem-somos">
@@ -78,7 +89,6 @@ function App() {
                 <Route path="/categoria">
                     <Categoria/>
                 </Route>
-
 
 
                 {/* ROTA 404 */}
