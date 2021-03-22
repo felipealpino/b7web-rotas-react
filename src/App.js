@@ -59,6 +59,11 @@ function App() {
                     <Categoria/>
                 </Route>
 
+                {/* ROTA 404 */}
+                <Route path="*">
+                    <h4 style={{color:'red'}}>Página não encontrada</h4>
+                </Route>
+
 
             </Switch>
 
