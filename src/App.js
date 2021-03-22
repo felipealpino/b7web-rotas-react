@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link, Switch, Route} from 'react-router-dom'
+import { BrowserRouter, Link, Switch, Route,  Redirect} from 'react-router-dom'
 // import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
 import Home from './pages/Home'
 import Sobre from './pages/Sobre'
@@ -23,6 +23,10 @@ function App() {
                         
                         <li>
                             <Link to="/sobre">Sobre</Link>
+                        </li>
+
+                        <li>
+                            <Link to="/quem-somos">Quem somos? Vai te redirecionar para /sobre</Link>
                         </li>
                         
                         <li>
@@ -54,10 +58,18 @@ function App() {
                     <Sobre/>
                 </Route>
 
+                {/* ROTA QUE REDIRECIONA PARA SOBRE */}
+                <Route exact path="/quem-somos">
+                    <Redirect to="/sobre"/>
+                </Route>
+
+
                 {/* ROTA CATEGORIA */}
                 <Route path="/categoria">
                     <Categoria/>
                 </Route>
+
+
 
                 {/* ROTA 404 */}
                 <Route path="*">
