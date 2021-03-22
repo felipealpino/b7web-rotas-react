@@ -4,7 +4,10 @@ import { BrowserRouter, Link, Switch, Route,  Redirect} from 'react-router-dom'
 import Home from './pages/Home'
 import Sobre from './pages/Sobre'
 import Categoria from './pages/Categoria'
+import Login from './pages/Login';
 
+
+const isLogged = false;
 
 function App() {
 
@@ -48,6 +51,13 @@ function App() {
             <hr/>
 
             <Switch>
+                {/* ROTA LOGIN */}
+                <Route exact path="/login">
+                    <Login/>
+                </Route>
+
+
+
                 {/* ROTA HOME */}
                 <Route exact path="/">
                     <Home/>
@@ -55,7 +65,7 @@ function App() {
 
                 {/* ROTA SOBRE */}
                 <Route exact path="/sobre">
-                    <Sobre/>
+                    {isLogged ? <Sobre/> : <Redirect to="/login"/>}
                 </Route>
 
                 {/* ROTA QUE REDIRECIONA PARA SOBRE */}
