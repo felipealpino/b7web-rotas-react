@@ -26,15 +26,15 @@ function App() {
                         </li>
                         
                         <li>
-                            <Link to="/categoria/esportes">Esportes</Link>
+                            <Link to="/categoria?tipo=esportes">Esportes</Link>
                         </li>
                         
                         <li>
-                            <Link to="/categoria/noticias">Noticias</Link>
+                            <Link to="/categoria?tipo=noticias">Noticias</Link>
                         </li>
                         
                         <li>
-                            <Link to="/categoria/viagens">Viagem</Link>
+                            <Link to="/categoria?tipo=viagem">Viagem</Link>
                         </li>
 
                     </ul>
@@ -55,7 +55,7 @@ function App() {
                 </Route>
 
                 {/* ROTA CATEGORIA */}
-                <Route path="/categoria/:cat">
+                <Route path="/categoria">
                     <Categoria/>
                 </Route>
 
