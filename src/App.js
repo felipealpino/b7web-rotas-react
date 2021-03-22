@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Switch, Route} from 'react-router-dom'
 // import {BrowserRouter, Switch, Route, Link} from 'react-router-dom'
 import Home from './pages/Home'
 import Sobre from './pages/Sobre'
+import Categoria from './pages/Categoria'
 
 
 function App() {
@@ -16,12 +17,26 @@ function App() {
 
                 <nav>
                     <ul>
-                        <li> <a href="/" >
+                        <li>
                             <Link to="/">Home</Link>
-                        </a> </li>
+                        </li>
+                        
                         <li>
                             <Link to="/sobre">Sobre</Link>
                         </li>
+                        
+                        <li>
+                            <Link to="/categoria/esportes">Esportes</Link>
+                        </li>
+                        
+                        <li>
+                            <Link to="/categoria/noticias">Noticias</Link>
+                        </li>
+                        
+                        <li>
+                            <Link to="/categoria/viagens">Viagem</Link>
+                        </li>
+
                     </ul>
                 </nav>
             </header>
@@ -37,6 +52,11 @@ function App() {
                 {/* ROTA SOBRE */}
                 <Route exact path="/sobre">
                     <Sobre/>
+                </Route>
+
+                {/* ROTA CATEGORIA */}
+                <Route path="/categoria/:cat">
+                    <Categoria/>
                 </Route>
 
 
